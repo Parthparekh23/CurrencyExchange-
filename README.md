@@ -84,7 +84,7 @@
 ## 🔌 Technologies Used
 
 - **Frontend:** React Native + Expo
-- **Backend:** Node.js / Express (or other)
+- **Backend:** Node.js
 - **APIs:** National Bank of Poland API
 - **Database:** MongoDB
 - **Authentication:** OAuth 2.0 / JWT
