@@ -1,28 +1,45 @@
 # 🌍 ExchangeEase
 
-**ExchangeEase** is a cross-platform mobile application designed for seamless currency exchange operations. It provides real-time and historical exchange rates, secure wallet management, and streamlined currency transactions through a mobile-friendly interface.
+**ExchangeEase** is a mobile and web-based application designed to facilitate seamless and secure currency exchange operations. The system integrates real-time exchange rate data from the National Bank of Poland and provides users with a comprehensive suite of features to manage their funds and perform transactions effortlessly.
 
 ---
 
-## 📲 Features
+## 👥 Project Contributors
 
-### ✅ Mobile Application
+- **Parth Parekh** – 39106  
+- **Rashi Sonavani** – 58830
 
-- **Account Management**
-  - User registration and profile updates.
-- **Account Funding**
-  - Fund your wallet via virtual transfers.
-- **Withdrawals**
-  - Securely withdraw funds from your wallet.
-- **Live Exchange Rates**
-  - View real-time currency exchange data.
-  - Search and filter by currency.
-- **Historical Exchange Rates**
-  - Browse and filter archived data.
-- **Currency Transactions**
-  - Buy and sell currencies with real-time wallet updates.
-- **Transaction History**
-  - View your complete transaction log.
+---
+
+## 📱 Functional Requirements
+
+### Mobile Application
+
+1. **Account Management**
+   - Create an account with required user details.
+   - Update user profile.
+
+2. **Account Funding**
+   - Virtual transfer functionality to fund user accounts.
+   - Updated balance display after a successful transaction.
+
+3. **Fund Withdrawal**
+   - Withdraw funds from the ExchangeEase wallet.
+
+4. **Exchange Rate Information**
+   - Real-time exchange rate display.
+   - Search and filter options for specific currencies.
+
+5. **Archived Exchange Rates**
+   - View historical exchange rate data.
+   - Sort/filter archived data by date and currency.
+
+6. **Currency Transactions**
+   - Buy/sell currency within the app.
+   - Real-time balance and holdings updates after each transaction.
+
+7. **Transaction History**
+   - Access complete transaction history per user.
 
 ---
 
@@ -69,7 +86,7 @@
 - **Frontend:** React Native + Expo
 - **Backend:** Node.js / Express (or other)
 - **APIs:** National Bank of Poland API
-- **Database:** PostgreSQL / MongoDB / Firebase
+- **Database:** MongoDB
 - **Authentication:** OAuth 2.0 / JWT
 
 ---
