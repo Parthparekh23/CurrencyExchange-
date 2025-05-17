@@ -1,0 +1,59 @@
+trigger:
+  - deploy
+
+resources:
+  - repo: self
+
+variables:
+  tag: "nodeLatest"
+  poolName: "ubuntu-latest"
+  dockerHubServiceConnection: "docker-service-connection2"
+  imageName: "gauravpekhale1122/currencyexchnage"
+  webhookUrl: "https://api.render.com/deploy/srv-ctal6ortq21c73c5m4kg?key=8JmeQyi4o-U" # Replace this with the actual webhook URL
+
+pool:
+  vmImage: "$(poolName)"
+
+stages:
+  - stage: Build
+    displayName: Build, Push Docker image and Invoke Webhook
+    jobs:
+      - job: BuildAndPush
+        displayName: Build, Push and Invoke Webhook
+        pool:
+          vmImage: "$(poolName)"
+        steps:
+          - task: Docker@2
+            displayName: Build and tag an image
+            inputs:
+              command: build
+              dockerfile: "$(Build.SourcesDirectory)/api/Dockerfile"
+              tags: |
+                $(imageName):$(tag)
+              arguments: "--tag $(imageName):$(tag)"
+
+          - script: |
+              docker images
+            displayName: List Docker images for debugging
+
+          - task: Docker@2
+            displayName: Push an image
+            inputs:
+              command: push
+              repository: $(imageName)
+              tags: |
+                $(tag)
+              containerRegistry: $(dockerHubServiceConnection)
+
+          - script: |
+              curl -X GET $(webhookUrl)
+            displayName: Invoke Webhook
+
+          - script: |
+              echo "Waiting for 10 seconds..."
+              sleep 10
+            displayName: Wait 10 seconds
+
+          - script: |
+              docker rmi $(imageName):$(tag)
+            displayName: Remove Docker image

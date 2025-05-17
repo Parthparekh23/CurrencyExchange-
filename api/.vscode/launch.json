@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "command": "npm run dev",
+            "name": "Launch rakshita",
+            //"preLaunchTask": "npm: build",
+            "request": "launch",
+            "type": "node-terminal",
+            "sourceMaps": true
+        },
+    ]
+}
